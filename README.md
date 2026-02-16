@@ -1,6 +1,6 @@
-# Projeto Microsserviços - Toshiro Shibakita
+# Projeto Microsserviços - Docker & PHP
 
-Este projeto é uma evolução do repositório original de Denilson Bonatti, focado na implementação de uma arquitetura de microsserviços utilizando Docker e Docker Compose, seguindo as melhores práticas.
+Este projeto é uma evolução de uma estrutura base de microsserviços, focado na implementação de uma arquitetura utilizando Docker e Docker Compose, seguindo as melhores práticas de mercado.
 
 ## 🚀 Melhorias Implementadas
 

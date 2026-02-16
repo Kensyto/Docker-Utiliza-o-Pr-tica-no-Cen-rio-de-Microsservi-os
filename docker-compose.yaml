@@ -9,7 +9,7 @@ services:
     volumes:
       - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
-      - toshiro-network
+      - app-network
 
   app:
     build: ./app
@@ -22,7 +22,7 @@ services:
     depends_on:
       - db
     networks:
-      - toshiro-network
+      - app-network
 
   nginx:
     build: ./nginx
@@ -32,8 +32,8 @@ services:
     depends_on:
       - app
     networks:
-      - toshiro-network
+      - app-network
 
 networks:
-  toshiro-network:
+  app-network:
     driver: bridge
