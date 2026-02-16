@@ -1,0 +1,39 @@
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Senha123
+      MYSQL_DATABASE: meubanco
+    volumes:
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - toshiro-network
+
+  app:
+    build: ./app
+    restart: always
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASS: Senha123
+      DB_NAME: meubanco
+    depends_on:
+      - db
+    networks:
+      - toshiro-network
+
+  nginx:
+    build: ./nginx
+    restart: always
+    ports:
+      - "4500:80"
+    depends_on:
+      - app
+    networks:
+      - toshiro-network
+
+networks:
+  toshiro-network:
+    driver: bridge
